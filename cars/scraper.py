@@ -1,8 +1,8 @@
 from bs4 import BeautifulSoup
 import requests
 import pandas as pd
-#from models import Car
 import sqlite3
+import dbcreate
 
 
 def databasecreate():
@@ -21,6 +21,7 @@ def databasecreate():
     """)
 
     con.close()
+
 
 
 def cars_com_scrape():
@@ -141,6 +142,8 @@ def cars_com_scrape():
 
 
 def autotrader_scrape():
+
+    db = dbcreate.dbcreate()
     carname = []
     caryear = []
     carprice = []
@@ -149,8 +152,9 @@ def autotrader_scrape():
     carpic = []
     carengine = []
     carmake = []
+    carid = 0
     
-    pagenum = 10
+    pagenum = 9
     
     headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101 Firefox/102.0',
@@ -174,6 +178,8 @@ def autotrader_scrape():
         car_info = soup.find_all('div', class_="item-card row display-flex align-items-stretch")
     
         for car in car_info:
+            
+            carid += 1
 
             name = car.find('h2').text.strip().split(" ")[1:]
             name = " ".join(name)
@@ -202,10 +208,15 @@ def autotrader_scrape():
 
             image = pic['src']
             carpic.append(image)
+            
+            print(link)
 
-            price = soup2.find('span',class_='first-price first-price-lg text-size-700').text.strip()
-            price = price.replace(',','').replace('$','')
-            carprice.append(price)
+            if soup2.find('span',class_='first-price first-price-lg text-size-700') != None:
+                price = soup2.find('span',class_='first-price first-price-lg text-size-700').text.strip()
+                price = price.replace(',','').replace('$','')
+                carprice.append(price)
+            else:
+                price = "N/A"
         
             engine = soup2.find('div',class_='col-xs-10 margin-bottom-0').text.strip()
             carengine.append(engine)
@@ -224,20 +235,34 @@ def autotrader_scrape():
             print(engine)
 
             #importing data in database
-            cur.execute(f"""
-            INSERT INTO CARS(NAME, MANUFACTURER, YEAR, PRICE, MILES, ENGINE, LINK, IMAGE) VALUES (?,?,?,?,?,?,?,?)""",
+
+            """
+            cur.execute(f\"""
+            INSERT INTO CARS(NAME, MANUFACTURER, YEAR, PRICE, MILES, ENGINE, LINK, IMAGE) VALUES (?,?,?,?,?,?,?,?)\""",
                 (f'{name}',
                  f'{carmanu}',
                  f'{year}',
                  f'{price}',
                  f'{miles}',
-                 f'{engine}',
+                 'N/A',
                  f'{link}',
                  f'{image}'
                  )
             )
             con.commit()
+            """
 
+            data = {
+                u"Name": name,
+                u"Manufacturer": carmanu,
+                u"Year": year,
+                u"Price": price,
+                u"Miles": miles,
+                u"Link": link,
+                u"Image": image
+            }
+
+            dbcreate.dbinsert(db,carid,data)
             
 
 
@@ -253,19 +278,4 @@ def autotrader_scrape():
 
 #databasecreate()
 
-con = sqlite3.connect("cars.db")
-cur = con.cursor()
-cur.execute("""
-    CREATE TABLE IF NOT EXISTS cars(
-    name TEXT,
-    manufacturer TEXT,
-    year INTEGER,
-    price INTEGER,
-    miles INTEGER,
-    engine TEXT,
-    link TEXT,
-    image TEXT)
-    """)
-
 autotrader_scrape()
-con.close()
