@@ -3,6 +3,5 @@
     display: flex;
     background-color: whitesmoke;
     padding: 50px;
-    border: 4px solid midnightblue;
-    border-radius: 5px;
+    border: 1px solid lightgrey;
 }

@@ -1,4 +1,4 @@
-.card-container {
+.carInfo-container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -6,24 +6,24 @@
     justify-content: space-around;
 }
 
-.card {
-    height: 400px;
-    width: 300px;
+.carInfo {
+    height: 900px;
+    width: 800px;
     margin: 30px;
     position: relative;
 }
 
-.card-title {
+.carInfo-title {
     overflow: hidden;
     min-height: 100px;
     max-height: 200px;
 }
 
-.card-info {
+.carInfo-info {
     max-height: 50px;
 }
 
-.actions {
+.carInfo-actions {
     border-top: 1px solid lightblue;
     position: absolute;
     bottom: 0;

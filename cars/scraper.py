@@ -1,6 +1,26 @@
 from bs4 import BeautifulSoup
 import requests
 import pandas as pd
+#from models import Car
+import sqlite3
+
+
+def databasecreate():
+    
+    con = sqlite3.connect("cars.db")
+    cur = con.cursor()
+    cur.execute("""
+    CREATE TABLE IF NOT EXISTS cars(
+    name TEXT,
+    year INTEGER,
+    price INTEGER,
+    miles INTEGER,
+    engine TEXT,
+    link TEXT,
+    image TEXT)
+    """)
+
+    con.close()
 
 
 def cars_com_scrape():
@@ -128,8 +148,9 @@ def autotrader_scrape():
     carmiles = []
     carpic = []
     carengine = []
+    carmake = []
     
-    pagenum = 4
+    pagenum = 10
     
     headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101 Firefox/102.0',
@@ -156,9 +177,20 @@ def autotrader_scrape():
 
             name = car.find('h2').text.strip().split(" ")[1:]
             name = " ".join(name)
+            #name = name[5:]
             carname.append(name)
-        
-            caryear.append(name[0:4])
+
+            year = name[0:4]
+            caryear.append(year)
+
+            carmanu = name.split(' ')
+            carmanu = carmanu[1]
+
+            #for land rovers
+            if 'Land' in name:
+                carmanu = 'Land Rover'
+
+            carmake.append(carmanu)
                 
             #go into car details
             link = 'https://www.autotrader.com' + car.find('a', rel="nofollow")['href']
@@ -167,9 +199,10 @@ def autotrader_scrape():
             page = requests.get(link, headers=headers)
             soup2 = BeautifulSoup(page.content, "html.parser")
             pic = soup2.find('img',class_='carousel-image css-1tknha6-StyledImage e1nnhggb0')
-        
-            carpic.append(pic['src'])
-        
+
+            image = pic['src']
+            carpic.append(image)
+
             price = soup2.find('span',class_='first-price first-price-lg text-size-700').text.strip()
             price = price.replace(',','').replace('$','')
             carprice.append(price)
@@ -182,16 +215,57 @@ def autotrader_scrape():
             carmiles.append(miles)
         
             print(name)
-            print(name[0:4])
+            print(carmanu)
+            print(year)
             print(price)
             print(link)
-            print(miles[:-6].replace(',',''))
+            print(miles)
             print(pic['src'])
             print(engine)
+
+            #importing data in database
+            cur.execute(f"""
+            INSERT INTO CARS(NAME, MANUFACTURER, YEAR, PRICE, MILES, ENGINE, LINK, IMAGE) VALUES (?,?,?,?,?,?,?,?)""",
+                (f'{name}',
+                 f'{carmanu}',
+                 f'{year}',
+                 f'{price}',
+                 f'{miles}',
+                 f'{engine}',
+                 f'{link}',
+                 f'{image}'
+                 )
+            )
+            con.commit()
+
+            
+
 
     dfzip = list(zip(carname,caryear,carprice,carengine,carmiles,carlink,carpic))
     cardata = pd.DataFrame(dfzip, columns = ['name','year','price','engine','miles','link','image'])
     cardata.to_csv('testcardata.csv', index=False)
+
+    
+
+
     return cardata
 
-test = cars_com_scrape()
+
+#databasecreate()
+
+con = sqlite3.connect("cars.db")
+cur = con.cursor()
+cur.execute("""
+    CREATE TABLE IF NOT EXISTS cars(
+    name TEXT,
+    manufacturer TEXT,
+    year INTEGER,
+    price INTEGER,
+    miles INTEGER,
+    engine TEXT,
+    link TEXT,
+    image TEXT)
+    """)
+
+autotrader_scrape()
+con.close()

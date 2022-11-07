@@ -1,0 +1,11 @@
+.rc-card-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.rc-card {
+  height: 700px;
+  width: 300px;
+  margin: 30px;
+}
+

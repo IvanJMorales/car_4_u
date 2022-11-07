@@ -5,38 +5,46 @@ from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.response import Response
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-from .models import Car
-from .serializers import CarSerializer
+from cars.models import Car
+from cars.serializers import CarSerializer
 
 from rest_framework import status
 
 
-@api_view(['GET'])
+#@api_view(['GET'])
 def getCars(request):
-    query = request.query_params.get('keyword')
-    if query == None:
-        query = ''
+    if request.method=='GET':
+        cars = Car.objects.all()
+        cars_serializer = carSerializer(cars,many=True)
+        return JsonResponse(cars_serializer.data,safe=False)
 
-    cars = Car.objects.filter(
-        name__icontains=query).order_by('-createdAt')
 
-    page = request.query_params.get('page')
-    paginator = Paginator(cars, 5)
 
-    try:
-        cars = paginator.page(page)
-    except PageNotAnInteger:
-        cars = paginator.page(1)
-    except EmptyPage:
-        cars = paginator.page(paginator.num_pages)
+    
+    #query = request.query_params.get('keyword')
+    #if query == None:
+    #    query = ''
 
-    if page == None:
-        page = 1
+    #cars = Car.objects.filter(
+    #    name__icontains=query).order_by('-createdAt')
 
-    page = int(page)
-    print('Page:', page)
-    serializer = CarSerializer(cars, many=True)
-    return Response({'cars': serializer.data, 'page': page, 'pages': paginator.num_pages})
+    #page = request.query_params.get('page')
+    #paginator = Paginator(cars, 5)
+
+    #try:
+    #    cars = paginator.page(page)
+    #except PageNotAnInteger:
+    #    cars = paginator.page(1)
+    #except EmptyPage:
+    #    cars = paginator.page(paginator.num_pages)
+
+    #if page == None:
+    #    page = 1
+
+    #page = int(page)
+    #print('Page:', page)
+    #serializer = CarSerializer(cars, many=True)
+    #return Response({'cars': serializer.data, 'page': page, 'pages': paginator.num_pages})
 
 
 

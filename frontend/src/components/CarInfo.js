@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/SearchResultsCard.css';
+import '../styles/CarInfo.css';
 
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -9,30 +9,42 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import CardActionArea from '@mui/material/CardActionArea';
 import { Link } from 'react-router-dom';
-const SearchResultCard = () => {
-    const data = require('/Users/bushrahussain/Downloads/car_4_u/frontend/src/components/cardata.json')
-    const array = data.data;
+
+const CarInfo = () => {
+
+    const data = require('/Users/bushrahussain/Downloads/car_4_u/frontend/src/components/cardata.json');
+
+
+    console.log(data.data);
+
+    console.log();
 
     return (
-        <div className='card-container'>
-            {data.data.slice(0,50).map((option) => (
-                <Card className='card' key={option.index} value={option.carmake}>
+        <div className='carInfo-container'>
+            {data.data.slice(0,1).map((option) => (
+                <Card className='carInfo' key={option.index} value={option.carmake}>
                         <CardActionArea>
-                            <Link to={'/car-info/' + option.index}>
                                 <CardMedia
                                     component="img"
                                     alt="CAR IMAGE"
-                                    height="140"
+                                    height="500"
                                     image={option.image}
                                 />
-                            </Link>
                         </CardActionArea>
                         <CardContent className='card-content'>
                             <Typography className='card-title' variant="h4">
                                 {option.name}
                             </Typography>
-                            <Typography className='card-info' variant="h5" color="text.secondary">
+                            <Typography className='carInfo-card-info' variant="h5" color="text.secondary">
                                 Price: ${option.price}
+                                <br></br>
+                                Milage: {option.miles}
+                                <br></br>
+                                Year: {option.year}
+                                <br></br>
+                                Milage: {option.miles}
+                                <br></br>
+                                Engine: {option.engine}
                             </Typography>
                         </CardContent>
                         <CardActions className='actions'>
@@ -46,4 +58,4 @@ const SearchResultCard = () => {
     );
 };
 
-export default SearchResultCard;
+export default CarInfo;
