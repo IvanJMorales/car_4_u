@@ -2,12 +2,14 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    background-color: #F2F8FC;
+    background-image: url("../images/blue_bg.jpeg");
+    background-size: cover;
+    background-attachment: fixed;
     justify-content: space-around;
 }
 
 .card {
-    height: 400px;
+    height: 500px;
     width: 300px;
     margin: 30px;
     position: relative;
@@ -29,4 +31,9 @@
     bottom: 0;
     width: 100%;
     justify-content: center;
+}
+
+.page-selector {
+    display: flex;
+
 }
