@@ -11,14 +11,7 @@ import CardActionArea from '@mui/material/CardActionArea';
 import { Link } from 'react-router-dom';
 
 const CarInfo = () => {
-
-    const data = require('/Users/Ivan/Desktop/car_4_u/frontend/src/components/cardata.json');
-
-
-    console.log(data.data);
-
-    console.log();
-
+    const data = []
     return (
         <div className='carInfo-container'>
             {data.data.slice(0,1).map((option) => (

@@ -4,7 +4,7 @@ import SearchResultsCard from './SearchResultsCard';
 
 const SearchResultsBody = () => {
     return (
-        <div className='body'>
+        <div className='search-body'>
             <SearchResultsCard />
         </div>
     );

@@ -4,6 +4,17 @@
     border-radius: 5px;
 }
 
+.menu-item {
+    text-transform: lowercase;
+}
+
+.options {
+    width: 500px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
 .selectors {
     width: 100%;
     display: flex;
