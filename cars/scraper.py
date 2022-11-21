@@ -154,7 +154,7 @@ def autotrader_scrape():
     carmake = []
     carid = 0
     
-    pagenum = 9
+    pagenum = 4
     
     headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101 Firefox/102.0',
@@ -183,8 +183,10 @@ def autotrader_scrape():
 
             name = car.find('h2').text.strip().split(" ")[1:]
             name = " ".join(name)
-            #name = name[5:]
             carname.append(name)
+
+            condition = car.find('h2').text.strip().split(" ")[0]
+
 
             year = name[0:4]
             caryear.append(year)
@@ -195,6 +197,13 @@ def autotrader_scrape():
             #for land rovers
             if 'Land' in name:
                 carmanu = 'Land Rover'
+
+            model = name.split(' ')[2]
+
+            if carmanu == 'Land Rover':
+                model = name.split(' ')[3:4]
+                model = " ".join(model)
+                model = "Range Rover"
 
             carmake.append(carmanu)
                 
@@ -218,13 +227,24 @@ def autotrader_scrape():
             else:
                 price = "N/A"
         
-            engine = soup2.find('div',class_='col-xs-10 margin-bottom-0').text.strip()
-            carengine.append(engine)
+            engine = soup2.find_all('div',class_='col-xs-10 margin-bottom-0')[3].text.strip()
+            engine = engine.split(" ")[:-1]
+            engine = " ".join(engine)
+            #carengine.append(engine)
+
+            color = soup2.find_all('div',class_='col-xs-10 margin-bottom-0')[1].text.strip()
+            color = color.split(" ")[0]
         
             miles = soup2.find('div',class_='col-xs-10 margin-bottom-0').text.strip()
             miles = miles[:-6].replace(',','')
             carmiles.append(miles)
-        
+
+            """
+            mpg = soup2.find_all('div',class_='col-xs-10 margin-bottom-0')[6].text.strip()
+            mpg = mpg.split(" ")
+            mpg_city = mpg[0]
+            mpg_highway = mpg[3]
+            """
             print(name)
             print(carmanu)
             print(year)
@@ -233,6 +253,7 @@ def autotrader_scrape():
             print(miles)
             print(pic['src'])
             print(engine)
+            print(condition)
 
             #importing data in database
 
@@ -253,27 +274,33 @@ def autotrader_scrape():
             """
 
             data = {
+                u"Condition": condition,
                 u"Name": name,
                 u"Manufacturer": carmanu,
+                u"Model": model,
                 u"Year": year,
                 u"Price": price,
                 u"Miles": miles,
                 u"Link": link,
-                u"Image": image
+                u"Image": image,
+                u"Engine": engine, 
+                u"Color": color#,
+                #u"Miles Per Gallon City": mpg_city,
+                #u"Miles Per Gallon Highway": mpg_highway
             }
 
             dbcreate.dbinsert(db,carid,data)
             
 
 
-    dfzip = list(zip(carname,caryear,carprice,carengine,carmiles,carlink,carpic))
-    cardata = pd.DataFrame(dfzip, columns = ['name','year','price','engine','miles','link','image'])
-    cardata.to_csv('testcardata.csv', index=False)
+    #dfzip = list(zip(carname,caryear,carprice,carengine,carmiles,carlink,carpic))
+    #cardata = pd.DataFrame(dfzip, columns = ['name','year','price','engine','miles','link','image'])
+    #cardata.to_csv('testcardata.csv', index=False)
 
     
 
 
-    return cardata
+    #return cardata
 
 
 #databasecreate()
