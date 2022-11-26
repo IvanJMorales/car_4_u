@@ -1,6 +1,5 @@
 .footer {
-    background-color: #255390;
-    height: 300px;
+    height: 50px;
     width: 100%;
     margin-top: 0px;
 }
@@ -8,7 +7,7 @@
 .column-footer {
     background-color: #255390;
     display: flex;
-    height: 300px;
+    height: 100px;
     width: 100%;
 }
 

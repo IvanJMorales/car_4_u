@@ -8,7 +8,7 @@ const Footer = () => {
             <div className="column-footer">
                 <div className="left-footer">
                     <h3>VISIT US</h3>
-                    <p>555 Bla Street, </p>
+                    <p>555 Main Street, </p>
                     <a href="tel:(718)-555-5555">(718)-555-5555</a>
                     <br></br>
                     <a href="#"></a>

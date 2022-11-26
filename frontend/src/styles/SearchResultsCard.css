@@ -2,9 +2,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    background-image: url("../images/blue_bg.jpeg");
-    background-size: cover;
-    background-attachment: fixed;
+    background-color: whitesmoke;
     justify-content: space-around;
 }
 
@@ -17,13 +15,12 @@
 
 .card-title {
     overflow: hidden;
+    text-align: center;
     min-height: 100px;
     max-height: 200px;
 }
 
-.card-info {
-    max-height: 50px;
-}
+
 
 .actions {
     border-top: 1px solid lightblue;
@@ -35,5 +32,4 @@
 
 .page-selector {
     display: flex;
-
 }

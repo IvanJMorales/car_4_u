@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import '../styles/SearchResultsCard.css';
 
 import Card from '@mui/material/Card';
@@ -11,17 +11,21 @@ import CardActionArea from '@mui/material/CardActionArea';
 
 import { Link } from 'react-router-dom';
 
+import { CollectionContext } from '../App';
+
 const SearchResultsCard = (props) => {
+    const data = useContext(CollectionContext)
+    console.log(data)
     return (
         <div className='card-container'>
-            {props.cars.map((car) => (
+            {props.cars.slice(0,20).map((car) => (
                 <Card className='card' raised='true' key={car.id} value={car.CarMake}>
                     <CardActionArea>
-                        <Link to={'/car-info/' + car.index}>
+                        <Link to={'/car-info/' + car.id}>
                             <CardMedia
                                 component="img"
                                 alt="CAR IMAGE"
-                                height="140"
+                                height="180"
                                 image={car.Image}
                             />
                         </Link>

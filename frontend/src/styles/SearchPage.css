@@ -5,3 +5,8 @@
     padding: 50px;
     border: 1px solid lightgrey;
 }
+
+.page-number {
+    display: flex;
+    justify-content: center;
+}
