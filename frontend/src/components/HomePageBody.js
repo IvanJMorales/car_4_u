@@ -8,13 +8,13 @@ const HomePageBody = () => {
             <div className='banner-text'>
                 EASIEST WAY TO FIND YOUR NEXT CAR
             </div>
+            <div className='subtitle'>
+                Search through multiple websites all in one place
+            </div>
             <div className='button'>
                 <a href='/search-page'>
                     <Button variant="contained">Find the Car for You</Button>
                 </a>
-            </div>
-            <div className='subtitle'>
-                Search through multiple websites all in one place
             </div>
         </div>
     );

@@ -5,14 +5,12 @@ import "../styles/Header.css"
 const Header = () => {
     return (
         <div className='header'>
-            <Link to='/'>
-                <div className='logo'>
-                    <ul>
-                        <li className='nav-item'>
-                        </li>
-                    </ul>
-                </div>
-            </Link>
+            <div className='logo'>
+                <Link to='/' className='logo-link'>
+                    <div className='logo'>
+                    </div>
+                </Link>
+            </div>
             <ul className='navbar'>
                 <li className='nav-item'>
                     <Link to='/search-page' className='link'>
@@ -29,17 +27,17 @@ const Header = () => {
                         RIGHT CAR FOR YOU?
                     </Link>
                 </li>
-                
-                {/*<li className='nav-item'>
-                    <Link to='/logout' className='link'> 
-                        LOGOUT
-                    </Link>
+
+                {/*Line in navbar*/}
+                <li>
+                    <div class="vl"></div>
                 </li>
+                {/*USER LOGIN*/}
                 <li className='nav-item'>
                     <Link to='/login' className='link'>
                         LOGIN
                     </Link>
-                </li>*/}
+                </li>
             </ul>
         </div>
     );
