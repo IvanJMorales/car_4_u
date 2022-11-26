@@ -1,6 +1,8 @@
 from bs4 import BeautifulSoup
 import requests
 import pandas as pd
+import random
+import string
 #import sqlite3
 import dbcreate
 
@@ -26,6 +28,7 @@ def databasecreate():
 
 def cars_com_scrape():
 
+    db = dbcreate.dbcreate()
     carname = []
     caryear = []
     carprice = []
@@ -132,7 +135,6 @@ def cars_com_scrape():
                 else:
                     carpic.append(pic['src'])
                     pic = pic['src']
-        
                 print("link :", link)
                 print("name: ", vehiclename)
                 print("year: ", vehicleyear)
@@ -160,6 +162,8 @@ def cars_com_scrape():
                 #u"Miles Per Gallon City": mpg_city,
                 #u"Miles Per Gallon Highway": mpg_highway
             }
+
+                carid = ''.join(random.choice(string.ascii_letters + string.digits) for i in range(32)) #creates a 32 character key for the database
 
                 dbcreate.dbinsert(db,carid,data)
 
@@ -193,7 +197,6 @@ def autotrader_scrape():
     carpic = []
     carengine = []
     carmake = []
-    carid = 0
     
     pagenum = 4
     
@@ -220,7 +223,6 @@ def autotrader_scrape():
     
         for car in car_info:
             
-            carid += 1
 
             name = car.find('h2').text.strip().split(" ")[1:]
             name = " ".join(name)
@@ -330,6 +332,7 @@ def autotrader_scrape():
                 #u"Miles Per Gallon Highway": mpg_highway
             }
 
+            carid = ''.join(random.choice(string.ascii_letters + string.digits) for i in range(32)) #creates a 32 character key for the database
             dbcreate.dbinsert(db,carid,data)
             
 
@@ -343,7 +346,5 @@ def autotrader_scrape():
 
     #return cardata
 
-
-#databasecreate()
 
 autotrader_scrape()
