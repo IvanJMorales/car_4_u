@@ -14,5 +14,5 @@ def dbcreate():
 
 
 def dbinsert(database,carid,data):
-    database.collection(u"Vehicles").document(f"Car #{carid}").set(data)
+    database.collection(u"Vehicles").document(f"Car_{carid}").set(data)
 
