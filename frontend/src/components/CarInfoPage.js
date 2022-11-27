@@ -37,9 +37,13 @@ const CarInfo = () => {
 
     return (
         <div className='carInfo-container'>
-            {carState.Name}
-            <br></br>
-            {carState.Miles}
+            <div className='carInfo-name'>
+                {carState.Name}
+            </div>
+            <div className='carInfo-info'>
+                Miles: {carState.Miles}
+                Year: {carState.Year}
+            </div>
             <img 
             src={carState.Image}
             alt="new"
