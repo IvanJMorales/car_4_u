@@ -1,0 +1,33 @@
+.index-circle-top{
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    background-color:white;
+    border-bottom-right-radius: 150%;
+    border-top-left-radius: 30px;
+}
+.App {
+    height: 100vh;
+    width: 100vw;
+    text-align: center;
+    
+    background-color: rgb(76, 168, 205);
+  }
+
+.form-header{
+    color: rgb(255, 255, 255);
+    font-size: 1.4rem !important;
+    font-weight: bolder !important;
+}
+
+input{
+    color: white !important;
+    border-color: aliceblue !important;
+}
+
+.img-cnt{
+    height: '100vh'!important;
+    width: '100%'!important;
+    background-size: 'cover' !important;
+    background-position: 'center' !important;
+}
