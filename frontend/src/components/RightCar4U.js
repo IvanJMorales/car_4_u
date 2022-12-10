@@ -1,7 +1,7 @@
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
-import "./RightCar4U.css";
+import "../styles/RightCar4U.css";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Car from "./Car";
@@ -9,7 +9,7 @@ import Home from "./Home";
 import Trucks from "./Trucks";
 import Luxurys from "./Luxurys";
 
-function App() {
+function RightCarForU() {
   return (
     <div className="App">
       <BrowserRouter>
@@ -28,4 +28,4 @@ function App() {
   );
 }
 
-export default App;
+export default RightCarForU;

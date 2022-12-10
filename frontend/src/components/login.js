@@ -1,7 +1,7 @@
 import * as React from "react"
 import { Avatar, Stack, Typography, TextField, FormControl} from "@mui/material";
 import { IconButton, Button} from "@mui/material"
-import img1 from "./singup-login-pic/img1.png"
+import img1 from "../images/img1.png"
 
 import GoogleIcon from '@mui/icons-material/Google';
 import AppleIcon from '@mui/icons-material/Apple';

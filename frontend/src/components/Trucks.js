@@ -1,7 +1,7 @@
 import React from "react";
-import truck from "./RightCar4u-pic/truck.jpeg";
-import truck2 from "./RightCar4u-pic/truck2.jpg";
-import truck3 from "./RightCar4u-pic/truck3.jpg";
+import truck from "../images/truck.jpeg";
+import truck2 from "../images/truck2.jpg";
+import truck3 from "../images/truck3.jpg";
 import Carousel from 'react-bootstrap/Carousel';
 
 const Trucks = () => {

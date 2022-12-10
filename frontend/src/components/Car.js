@@ -1,9 +1,8 @@
 import React from 'react'
-import car from './RightCar4u-pic/car.jpeg';
-import img4 from './RightCar4u-pic/img4.jpeg';
-import img5 from './RightCar4u-pic/img5.jpeg';
+import car from '../images/car.jpeg';
+import img4 from '../images/img4.jpeg';
+import img5 from '../images/img5.jpeg';
 
-import './App.css';
 import Carousel from 'react-bootstrap/Carousel';
 const Car = () => {
   return (

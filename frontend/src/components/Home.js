@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import './App.css';
-import car from './RightCar4u-pic/car.jpeg';
-import luxury from './RightCar4u-pic/luxury.jpeg';
-import truck from './RightCar4u-pic/truck.jpeg';
+
+import car from '../images/car.jpeg';
+import luxury from '../images/luxury.jpeg';
+import truck from '../images/truck.jpeg';
 
 const Home = () => {
   const data = [

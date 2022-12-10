@@ -10,8 +10,11 @@ import RightCar4U from "./components/RightCar4U";
 import SearchResultsBody from './components/SearchResultsBody';
 import "./App.css";
 import CarInfoPage from "./components/CarInfoPage";
-//import LoginScreen from "./components/LoginScreen"
-//import RegisterScreen from "./components/RegisterScreen"
+
+// Jason
+import Index from './components/Slides';
+import Index_signup from './components/Index_signup';
+
 import Loader from "./components/Loader"
 
 import { collection, getDocs } from "firebase/firestore";
@@ -37,6 +40,11 @@ function App() {
           <Route path="/right-car-for-you" element={<RightCar4U />}/>
           <Route path="/car-info/:id" element={<CarInfoPage />}/>
           <Route path="/search-results/" element={<SearchResultsBody />}/>
+
+          {/*Jason*/}
+          <Route index path='/signup' element={<Index_signup/>}/>
+          <Route index path='/login' element={<Index/>}/>
+
         </Routes>
       <Footer />
       </CollectionContext.Provider>

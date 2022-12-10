@@ -1,7 +1,7 @@
 import React from "react";
-import luxury from "./RightCar4u-pic/luxury.jpeg";
-import luxury2 from "./RightCar4u-pic/luxury2.jpeg";
-import luxury3 from "./RightCar4u-pic/luxury3.jpeg";
+import luxury from "../images/luxury.jpeg";
+import luxury2 from "../images/luxury2.jpeg";
+import luxury3 from "../images/luxury3.jpeg";
 import Carousel from 'react-bootstrap/Carousel';
 
 const Luxurys = () => {

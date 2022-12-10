@@ -1,15 +1,15 @@
-import "./style.css";
+import "../styles/style.css";
 import React from "react";
 import Grid from "@mui/material/Grid";
 import CssBaseline from "@mui/material/CssBaseline";
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 import Log_in from "./login";
-import img2 from "./singup-login-pic/img2.png";
-import img3 from "./singup-login-pic/img3.png";
-import img4 from "./singup-login-pic/img4.png";
-import img5 from "./singup-login-pic/img5.png";
-import img6 from "./singup-login-pic/img6.png";
+import img2 from "../images/img2.png";
+import img3 from "../images/img3.png";
+import img4 from "../images/img4.png";
+import img5 from "../images/img5.png";
+import img6 from "../images/img6.png";
 
 const buttonStyle = {
   width: "25px",

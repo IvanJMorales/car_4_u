@@ -1,9 +1,8 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle";
-import img1 from './HowItWorks-pics/1.png'
-import img2 from './HowItWorks-pics/2.png'
+import img1 from '../images/1.png'
+import img2 from '../images/2.png'
 
-import "./HowItWork.scss";
 
 function HowItWorks() {
   return (
