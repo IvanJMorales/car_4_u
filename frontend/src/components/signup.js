@@ -11,11 +11,11 @@ import { Link, useNavigate } from "react-router-dom";
 import GoogleIcon from "@mui/icons-material/Google";
 import AppleIcon from "@mui/icons-material/Apple";
 import FacebookIcon from "@mui/icons-material/Facebook";
-import { app, db } from "./Firebase";
+import { app, database } from "../firebase";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
 import { setDoc, doc } from "firebase/firestore";
-import img1 from './singup-login-pic/img1.png'
+import img1 from '../images/img1.png'
 
 
 export default function Sign_Up() {
@@ -34,7 +34,7 @@ export default function Sign_Up() {
         
         // navigate("/Home");
 
-        setDoc(doc(db, "users", res.user.uid), {
+        setDoc(doc(database, "users", res.user.uid), {
           email: email,
           password: password,
           userId:res.user.uid
