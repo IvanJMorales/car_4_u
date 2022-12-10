@@ -41,7 +41,6 @@ const CarInfo = () => {
         <div className='container'>
             <img className='carInfo-image'
                 src={carState.Image}
-                alt="new"
             />
             <div className='carInfo-container'>
                 <div className='carInfo-name'>

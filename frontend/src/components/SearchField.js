@@ -22,6 +22,9 @@ const SearchField = (props) => {
     // Initialize state
     const [search, setSearch] = useState('')
     const [value, setValue] = useState([])
+    
+    // State of Advanced Search
+    const [manuSelect, setManuSelect] = useState('')
 
     const navigate = useNavigate();
 
@@ -51,8 +54,8 @@ const SearchField = (props) => {
 
     // MENU OPTION CLICK
     const handleClick = (e) => {
-        setValue(e.target.value)
-        console.log(value)
+        setManuSelect(e.currentTarget.dataset)
+        console.log(manuSelect)
     }
 
     // Variable to check for duplicates of Manufacturers
@@ -65,11 +68,11 @@ const SearchField = (props) => {
 
     return (
         <div className="selection-area">
-            <div className="selectors">
-                <div className="search-bar">
-                    <input type="search" placeholder="Search for car" onChange={event => setSearch(event.target.value)}></input>
+            <div className="search-bar-container">
+                    <input className='search-bar' type="search" placeholder="Search (BY MANUFACTURER ONLY)" onChange={event => setSearch(event.target.value)}></input>
                     <Button onClick={() => findCar()} variant="contained">SEARCH</Button>
                 </div>
+            <div className="selectors">
 
 
                 {/***** Manufacturer of car selector *****/}
@@ -77,7 +80,7 @@ const SearchField = (props) => {
                     id="make"  
                     select
                     label="Make"
-                    //value={value}
+                    value={value}
                     //onChange={(e) => setValue(e.target.value)}
                     helperText="Make"
                     prop sx={{width: 120}}
@@ -92,7 +95,7 @@ const SearchField = (props) => {
                             
                             // Render option for each manufacturer in array
                             return (
-                                <MenuItem className='menu-item' key={car.id}>
+                                <MenuItem className='menu-item' value={car.Manufacturer} key={car.id} onClick={(e) => handleClick(e.currentTarget.dataset)}>
                                     {car.Manufacturer}
                                 </MenuItem>
                             )
