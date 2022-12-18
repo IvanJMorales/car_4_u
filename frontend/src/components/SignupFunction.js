@@ -1,4 +1,9 @@
 import * as React from "react";
+import { useState } from "react";
+
+import { Link, useNavigate } from "react-router-dom";
+
+// MUI Imports
 import {
   Avatar,
   Stack,
@@ -7,14 +12,16 @@ import {
   FormControl,
 } from "@mui/material";
 import { IconButton, Button } from "@mui/material";
-import { Link, useNavigate } from "react-router-dom";
 import GoogleIcon from "@mui/icons-material/Google";
 import AppleIcon from "@mui/icons-material/Apple";
 import FacebookIcon from "@mui/icons-material/Facebook";
-import { app, database } from "../firebase";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { useState } from "react";
+
+// Firebase Imports
+import { auth, database } from "../firebase";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { setDoc, doc } from "firebase/firestore";
+
+// Images
 import img1 from '../images/img1.png'
 
 
@@ -26,7 +33,6 @@ export default function Sign_Up() {
 
   
   const handleAction = () => {
-    const auth = getAuth();
     console.log("done");
     createUserWithEmailAndPassword(auth, email, password)
       .then((res) => {

@@ -7,9 +7,8 @@ import { Link, useParams } from 'react-router-dom';
 
 // Firebase imports
 import { doc, getDoc } from "firebase/firestore";
-
-
 import { database } from '../firebase.js';
+
 import { CollectionContext } from '../App';
 
 

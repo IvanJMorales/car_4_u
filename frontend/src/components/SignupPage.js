@@ -3,13 +3,15 @@ import React from "react";
 import Grid from "@mui/material/Grid";
 import CssBaseline from "@mui/material/CssBaseline";
 import { Slide } from "react-slideshow-image";
-import "react-slideshow-image/dist/styles.css";
-import Log_in from "./login";
-import img2 from "../images/img2.png";
-import img3 from "../images/img3.png";
-import img4 from "../images/img4.png";
-import img5 from "../images/img5.png";
-import img6 from "../images/img6.png";
+//import "react-slideshow-image/dist/styles.css";
+import LoginFunction from "./LoginFunction";
+import SignupFunction from "./SignupFunction";
+import img2 from "../images/img2.png"
+import img3 from "../images/img3.png"
+import img4 from "../images/img4.png"
+import img5 from "../images/img5.png"
+import img6 from "../images/img6.png"
+
 
 const buttonStyle = {
   width: "25px",
@@ -34,8 +36,14 @@ const properties = {
   ),
 };
 
-export default function Index() {
-  const images = [{ img2 }, { img3 }, { img4 }, { img5 }, { img6 }];
+const SignupPage = () => {
+  const images = [
+    {img2},
+    {img3},
+    {img4},
+    {img5},
+    {img6},
+  ];
 
   return (
     <Grid container component="main" sx={{ height: "100vh" }}>
@@ -49,6 +57,7 @@ export default function Index() {
         sx={{
           backgroundImage:
             {img5},
+          backgroundRepeat: "no-repeat",
           backgroundColor: (t) =>
             t.palette.mode === "light"
               ? t.palette.grey[50]
@@ -119,8 +128,10 @@ export default function Index() {
       <Grid item xs={12} sm={7} md={4} sx={{ padding: 5, height: "100vh" }}>
         <div className="index-circle-top"></div>
 
-        <Log_in />
+        <SignupFunction />
       </Grid>
     </Grid>
   );
-}
+};
+
+export default SignupPage;

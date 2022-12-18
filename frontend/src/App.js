@@ -1,5 +1,7 @@
-import React, { useEffect, useState, createContext, useContext } from 'react';
+import React, { createContext} from 'react';
+import "./App.css";
 
+// Components
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import {Routes, Switch, Route} from "react-router-dom";
@@ -8,26 +10,23 @@ import SearchPage from "./components/SearchPage";
 import HowItWorks from "./components/HowItWorks";
 import RightCar4U from "./components/RightCar4U";
 import SearchResultsBody from './components/SearchResultsBody';
-import "./App.css";
 import CarInfoPage from "./components/CarInfoPage";
 
 // Jason
-import Index from './components/Slides';
-import Index_signup from './components/Index_signup';
+import LoginPage from './components/LoginPage';
+import SignupPage from './components/SignupPage';
 
-import Loader from "./components/Loader"
-
+// Firebase Imports
 import { collection, getDocs } from "firebase/firestore";
 import { database } from './firebase.js';
-
+import UserProfile from './components/UserProfile';
 
 // Collection Reference Context to make Collection accessable to all Context wrapped components
 export const CollectionContext = createContext()
 
+// Reference to firebase collection
 const collectionRef = collection(database, "Vehicles")
 
-
-console.log(collectionRef)
 function App() {
   return (
     <div>
@@ -40,11 +39,11 @@ function App() {
           <Route path="/right-car-for-you" element={<RightCar4U />}/>
           <Route path="/car-info/:id" element={<CarInfoPage />}/>
           <Route path="/search-results/" element={<SearchResultsBody />}/>
+          <Route path='/profile' element={<UserProfile />}/>
 
           {/*Jason*/}
-          <Route index path='/signup' element={<Index_signup/>}/>
-          <Route index path='/login' element={<Index/>}/>
-
+          <Route path='/signup' element={<SignupPage />}/>
+          <Route path='/login' element={<LoginPage />}/>
         </Routes>
       <Footer />
       </CollectionContext.Provider>

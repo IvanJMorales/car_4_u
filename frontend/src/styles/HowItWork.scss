@@ -1,13 +1,9 @@
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
+/*@media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
+}*/
+
 body
 {
   /* background-color: blue; */
@@ -16,20 +12,6 @@ body
   background-position: contain;
   background-size: cover;
   background-repeat: no-repeat;
-  
-
-}
-.App-header {
-  // background-color: transparent !important;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-  background: transparentize($color: black, $amount: 0.3 )!important;
-  /* background:transparent; */
 }
 
 .App-link {

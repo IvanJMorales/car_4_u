@@ -1,4 +1,4 @@
-import "mdb-react-ui-kit/dist/css/mdb.min.css";
+//import "mdb-react-ui-kit/dist/css/mdb.min.css";
 //import "@fortawesome/fontawesome-free/css/all.min.css";
 
 import "../styles/RightCar4U.css";
@@ -11,20 +11,7 @@ import Luxurys from "./Luxurys";
 
 function RightCarForU() {
   return (
-    <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/Home" element={<Home />} />
-
-          <Route path="/car" element={<Car />} />
-          <Route path="/luxury" element={<Luxurys />} />
-
-          <Route path="/truck" element={<Trucks />} />
-        </Routes>
-      </BrowserRouter>
-
-    </div>
+    <div></div>
   );
 }
 

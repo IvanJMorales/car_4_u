@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+// Images
 import car from '../images/car.jpeg';
 import luxury from '../images/luxury.jpeg';
 import truck from '../images/truck.jpeg';

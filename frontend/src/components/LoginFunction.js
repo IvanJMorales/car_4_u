@@ -1,33 +1,37 @@
 import * as React from "react"
+import { useState } from "react";
+
+// React Router Imports
+import { Link, useNavigate } from "react-router-dom";
+
+// MUI Imports
 import { Avatar, Stack, Typography, TextField, FormControl} from "@mui/material";
 import { IconButton, Button} from "@mui/material"
-import img1 from "../images/img1.png"
-
 import GoogleIcon from '@mui/icons-material/Google';
 import AppleIcon from '@mui/icons-material/Apple';
 import FacebookIcon from '@mui/icons-material/Facebook';
-import { Link, useNavigate } from "react-router-dom";
 
+// Images
+import img1 from "../images/img1.png"
+
+// Firebase Imports
+import { auth } from "../firebase";
 import {
-    getAuth,
     signInWithEmailAndPassword,
     sendPasswordResetEmail,
   } from "firebase/auth";
-import { useState } from "react";
 
-
-
-export default function Log_in(){
+export default function LoginFunction(){
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
 
     const handleAction = () => {
-        const auth = getAuth();
         signInWithEmailAndPassword(auth, email, password)
-          .then((res) => {
-            // navigate("/home");
+          .then((userCredential) => {
+            const user = userCredential.user;
+            navigate("/");
             // alert("log in successfully");
           })
           .catch((e) => {
@@ -40,7 +44,6 @@ export default function Log_in(){
           });
       };
       const handleReset = () => {
-        const auth = getAuth();
         sendPasswordResetEmail(auth, email)
           .then(() => {
             // alert("Password reset email sent!") 
@@ -58,8 +61,7 @@ export default function Log_in(){
 
     
 
-    return(
-
+    return (
         <Stack
         sx = {{height: '100%', border: '3px solid white', borderRadius: '30px 2px', pt: 6}} 
         direction='column'

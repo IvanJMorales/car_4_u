@@ -4,14 +4,12 @@ import Grid from "@mui/material/Grid";
 import CssBaseline from "@mui/material/CssBaseline";
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
-import Log_in from "./login";
-import Sign_Up from "./signup";
-import img2 from "../images/img2.png"
-import img3 from "../images/img3.png"
-import img4 from "../images/img4.png"
-import img5 from "../images/img5.png"
-import img6 from "../images/img6.png"
-
+import LoginFunction from "./LoginFunction";
+import img2 from "../images/img2.png";
+import img3 from "../images/img3.png";
+import img4 from "../images/img4.png";
+import img5 from "../images/img5.png";
+import img6 from "../images/img6.png";
 
 const buttonStyle = {
   width: "25px",
@@ -36,17 +34,13 @@ const properties = {
   ),
 };
 
-const Index_signup = () => {
-  const images = [
-    {img2},
-    {img3},
-    {img4},
-    {img5},
-    {img6},
-  ];
+export default function LoginPage() {
+  const images = [{ img2 }, { img3 }, { img4 }, { img5 }, { img6 }];
 
   return (
+    <div className="body">
     <Grid container component="main" sx={{ height: "100vh" }}>
+      {/*Slideshow*/}
       <CssBaseline />
 
       <Grid
@@ -57,7 +51,6 @@ const Index_signup = () => {
         sx={{
           backgroundImage:
             {img5},
-          backgroundRepeat: "no-repeat",
           backgroundColor: (t) =>
             t.palette.mode === "light"
               ? t.palette.grey[50]
@@ -128,10 +121,13 @@ const Index_signup = () => {
       <Grid item xs={12} sm={7} md={4} sx={{ padding: 5, height: "100vh" }}>
         <div className="index-circle-top"></div>
 
-        <Sign_Up/>
+        {/*Render Login Column*/}
+        <div className="login-column">
+        <LoginFunction />
+        </div>
       </Grid>
     </Grid>
-  );
-};
 
-export default Index_signup;
+  </div>
+  );
+}
