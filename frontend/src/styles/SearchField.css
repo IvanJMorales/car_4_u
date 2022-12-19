@@ -1,6 +1,5 @@
 .selection-area {
     width: 100%;
-    height: 200px;
 }
 
 .search-bar-container {
@@ -21,7 +20,6 @@
 
 .menu-item {
     text-transform: lowercase;
-    background-color: blue;
 }
 
 .selectors {
