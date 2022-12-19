@@ -295,7 +295,7 @@ def autotrader_scrape():
     #cardata.to_csv('testcardata.csv', index=False)
 
 
-def newscrape():
+def edmunds_scrape():
 
     db = dbcreate_test.dbcreate()
 
