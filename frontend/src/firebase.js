@@ -10,23 +10,24 @@ import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
 
-  apiKey: "AIzaSyAN8SzJ9oUDpBNtmAse9CfSg0M4HlCKUNY",
+  apiKey: "AIzaSyDMEH9kvb4HdeUBhDVnjIlzkoxp9UatiXI",
 
-  authDomain: "car4u-dd0c1.firebaseapp.com",
+  authDomain: "car4u-2.firebaseapp.com",
 
-  databaseURL: "https://car4u-dd0c1-default-rtdb.firebaseio.com",
+  databaseURL: "https://car4u-2-default-rtdb.firebaseio.com",
 
-  projectId: "car4u-dd0c1",
+  projectId: "car4u-2",
 
-  storageBucket: "car4u-dd0c1.appspot.com",
+  storageBucket: "car4u-2.appspot.com",
 
-  messagingSenderId: "391542669703",
+  messagingSenderId: "766140858814",
 
-  appId: "1:391542669703:web:326fbaf5d96b58c0379322",
+  appId: "1:766140858814:web:33b934072b3b7f3dc1b9ef",
 
-  measurementId: "G-L6PL878E6X"
+  measurementId: "G-FCSQZB2331"
 
 };
+
 
 
 

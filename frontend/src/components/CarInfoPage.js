@@ -12,13 +12,13 @@ import { database } from '../firebase.js';
 import { CollectionContext } from '../App';
 
 
-const CarInfo = () => {
+const CarInfoPage = () => {
     // Create state for car selected
     const [carState, setCarState] = useState('');
 
     // Get car id from end of URL
     const carId = useParams();
-    //console.log("CAR ID PARAM:", carId.id)
+    console.log("CAR ID PARAM:", carId.id)
 
     // Get Collection Contexts from "./App"
     const collection = useContext(CollectionContext)
@@ -76,4 +76,4 @@ const CarInfo = () => {
     );
 };
 
-export default CarInfo;
+export default CarInfoPage;

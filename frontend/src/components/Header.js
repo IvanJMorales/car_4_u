@@ -90,7 +90,7 @@ const Header = () => {
     
                     {/*Line in navbar*/}
                     <li>
-                        <div class="vl"></div>
+                        <div className="vl"></div>
                     </li>
                     {/*USER LOGIN*/}
                     <li className='nav-item'>

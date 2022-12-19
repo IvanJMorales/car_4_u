@@ -15,6 +15,8 @@ import { CollectionContext } from "../App";
 import { useNavigate } from "react-router";
 import SearchResultsBody from "./SearchResultsBody";
 
+import { Link } from "react-router-dom";
+
 // Create Context for results from search bar input
 export const SearchResultsContext = createContext()
 

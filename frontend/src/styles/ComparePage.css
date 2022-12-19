@@ -1,0 +1,9 @@
+.compare-box {
+    margin-bottom: 20px;
+}
+
+.carInfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

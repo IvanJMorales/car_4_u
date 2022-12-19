@@ -1,6 +1,7 @@
-import React, { useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import '../styles/SearchResultsCard.css';
 
+// MUI Imports
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -8,14 +9,37 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import CardActionArea from '@mui/material/CardActionArea';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { CollectionContext } from '../App';
 
 const SearchResultsCard = (props) => {
+    const [compareCars, setCompareCars] = useState([]);
+    const [fav, setFav] = useState("false");
+
+    const navigate = useNavigate();
+
+    // Add selected car to compare array
+    const addToCompare = (vehicle) => {
+        setCompareCars((compareCars) => [...compareCars, vehicle])
+        setFav(!fav);
+    }
+
+    // Remove selected car from compare array
+    const removeFromCompare = (vehicle) => {
+        let removeCarIndex = compareCars.indexOf(vehicle)
+        if (removeCarIndex > -1) {
+            compareCars.splice(removeCarIndex, 1);
+            setFav(!fav);
+        }
+    }
+
+    console.log(compareCars)
+
     const data = useContext(CollectionContext)
-    console.log(data)
     return (
         <div className='card-container'>
             {props.cars.slice(0,20).map((car) => (
@@ -30,6 +54,19 @@ const SearchResultsCard = (props) => {
                             />
                         </Link>
                     </CardActionArea>
+
+                    {/***Favorite (Heart Icon)***/}
+                    {compareCars.includes(car) ? (
+                        <FavoriteIcon color='primary' onClick={() => removeFromCompare(car)}/>
+                    ) : (
+                        <FavoriteBorderIcon color='primary' onClick={() => addToCompare(car)}/>
+                    )}
+
+                    <Button onClick={() => navigate('/compare-cars',{
+                        state: {
+                            compareCars: compareCars
+                        }
+                    })}>GO TO COMPARE</Button>
                     <CardContent className='card-content'>
                         <Typography className='card-title' variant="h4">
                             {car.Name}

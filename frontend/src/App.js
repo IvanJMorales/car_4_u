@@ -20,6 +20,7 @@ import SignupPage from './components/SignupPage';
 import { collection, getDocs } from "firebase/firestore";
 import { database } from './firebase.js';
 import UserProfile from './components/UserProfile';
+import ComparePage from './components/ComparePage';
 
 // Collection Reference Context to make Collection accessable to all Context wrapped components
 export const CollectionContext = createContext()
@@ -40,6 +41,7 @@ function App() {
           <Route path="/car-info/:id" element={<CarInfoPage />}/>
           <Route path="/search-results/" element={<SearchResultsBody />}/>
           <Route path='/profile' element={<UserProfile />}/>
+          <Route path='/compare-cars' element={<ComparePage />}/>
 
           {/*Jason*/}
           <Route path='/signup' element={<SignupPage />}/>
