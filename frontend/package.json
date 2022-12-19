@@ -1,7 +1,7 @@
 {
   "name": "frontend",
   "version": "0.1.0",
-  "homepage": "https://github.com/IvanJMorales/car_4_u",
+  "homepage": "https://ivanjmorales.github.io/car_4_u/",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.4",
