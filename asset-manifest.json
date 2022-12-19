@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/IvanJMorales/car_4_u/static/css/main.d18e5de7.css",
+    "main.js": "/IvanJMorales/car_4_u/static/js/main.66003f90.js",
+    "static/js/787.cda612ba.chunk.js": "/IvanJMorales/car_4_u/static/js/787.cda612ba.chunk.js",
+    "static/media/img4.png": "/IvanJMorales/car_4_u/static/media/img4.fc2c6d25fbec8557578f.png",
+    "static/media/img3.png": "/IvanJMorales/car_4_u/static/media/img3.3d004bf800ae0ffd94a6.png",
+    "static/media/img2.png": "/IvanJMorales/car_4_u/static/media/img2.04ea2de7dc90886a984a.png",
+    "static/media/img6.png": "/IvanJMorales/car_4_u/static/media/img6.47ac4f7bfeb95ea356c2.png",
+    "static/media/img5.png": "/IvanJMorales/car_4_u/static/media/img5.dbdee5ce349b8768eedc.png",
+    "static/media/homepageCar.jpg": "/IvanJMorales/car_4_u/static/media/homepageCar.52be5eff17e0b641a321.jpg",
+    "static/media/car.jpeg": "/IvanJMorales/car_4_u/static/media/car.ffbd857c1370774bf3d3.jpeg",
+    "static/media/truck.jpeg": "/IvanJMorales/car_4_u/static/media/truck.7a55cc1a9d7d2c021bf9.jpeg",
+    "static/media/2.png": "/IvanJMorales/car_4_u/static/media/2.3654ebb7cec0317a213c.png",
+    "static/media/car-4-u-logo.png": "/IvanJMorales/car_4_u/static/media/car-4-u-logo.904231953cd29407952d.png",
+    "static/media/1.png": "/IvanJMorales/car_4_u/static/media/1.8ae907b97f21b112fd32.png",
+    "static/media/img1.png": "/IvanJMorales/car_4_u/static/media/img1.5faf09a7795d28bf5a2b.png",
+    "static/media/luxury.jpeg": "/IvanJMorales/car_4_u/static/media/luxury.378d150f148a93ed8297.jpeg",
+    "index.html": "/IvanJMorales/car_4_u/index.html",
+    "main.d18e5de7.css.map": "/IvanJMorales/car_4_u/static/css/main.d18e5de7.css.map",
+    "main.66003f90.js.map": "/IvanJMorales/car_4_u/static/js/main.66003f90.js.map",
+    "787.cda612ba.chunk.js.map": "/IvanJMorales/car_4_u/static/js/787.cda612ba.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d18e5de7.css",
+    "static/js/main.66003f90.js"
+  ]
+}
