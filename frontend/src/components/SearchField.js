@@ -15,6 +15,8 @@ import { CollectionContext } from "../App";
 import { useNavigate } from "react-router";
 import SearchResultsBody from "./SearchResultsBody";
 
+import { Link } from "react-router-dom";
+
 // Create Context for results from search bar input
 export const SearchResultsContext = createContext()
 
@@ -22,6 +24,9 @@ const SearchField = (props) => {
     // Initialize state
     const [search, setSearch] = useState('')
     const [value, setValue] = useState([])
+    
+    // State of Advanced Search
+    const [manuSelect, setManuSelect] = useState('')
 
     const navigate = useNavigate();
 
@@ -51,8 +56,8 @@ const SearchField = (props) => {
 
     // MENU OPTION CLICK
     const handleClick = (e) => {
-        setValue(e.target.value)
-        console.log(value)
+        setManuSelect(e.currentTarget.dataset)
+        console.log(manuSelect)
     }
 
     // Variable to check for duplicates of Manufacturers
@@ -65,113 +70,9 @@ const SearchField = (props) => {
 
     return (
         <div className="selection-area">
-            <div className="selectors">
-                <div className="search-bar">
-                    <input type="search" placeholder="Search for car" onChange={event => setSearch(event.target.value)}></input>
-                    <Button onClick={() => findCar()} variant="contained">SEARCH</Button>
-                </div>
-
-
-                {/***** Manufacturer of car selector *****/}
-                <TextField
-                    id="make"  
-                    select
-                    label="Make"
-                    //value={value}
-                    //onChange={(e) => setValue(e.target.value)}
-                    helperText="Make"
-                    prop sx={{width: 120}}
-                >
-                    <div className="options">
-                        {props.cars.map((car) => {
-                            // Check for duplicates in Manufacturer
-                            if (manuDuplicateCheck.includes(car.Manufacturer)) {
-                                return null;
-                            }
-                            manuDuplicateCheck.push(car.Manufacturer);
-                            
-                            // Render option for each manufacturer in array
-                            return (
-                                <MenuItem className='menu-item' key={car.id}>
-                                    {car.Manufacturer}
-                                </MenuItem>
-                            )
-                        })}
-                    </div>
-                </TextField>
-                        
-                {/***** Model of car selector *****/}
-                <TextField
-                    id="model"  
-                    select
-                    label="Model"
-                    //value={carMake}
-                    //onChange={//handleMakeChange}
-                    helperText="Model"
-                    prop sx={{width: 120}}
-                >
-                    <div className="options">
-                        {props.cars.map((car) => {
-                            // Check for duplicates in Manufacturer
-                            if (manuDuplicateCheck.includes(car.Manufacturer)) {
-                                return null;
-                            }
-                            manuDuplicateCheck.push(car.Manufacturer);
-                            
-                            // Render card for each car in array
-                            return (
-                                <MenuItem className='menu-item' key={car.id}>
-                                    {car.Manufacturer}
-                                </MenuItem>
-                            )
-                        })}
-                    </div>
-                </TextField>
-                
-
-
-                {/***** Year of car selector *****/}
-                <TextField
-                    id="year"  
-                    select
-                    label="Year"
-                    //value={carMake}
-                    //onChange={//handleMakeChange}
-                    helperText="Year"
-                    prop sx={{width: 120}}
-                >
-                    <div className="options">
-                        {props.cars.map((car) => {
-                            // Check for duplicates in Manufacturer
-                            if (yearDuplicateCheck.includes(car.Year)) {
-                                return null;
-                            }
-                            yearDuplicateCheck.push(car.Year);
-                            
-                            // Render card for each car in array
-                            return (
-                                <MenuItem className='menu-item' key={car.id}>
-                                    {car.Year}
-                                </MenuItem>
-                            )
-                        })}
-                    </div>
-                </TextField>
-
-
-
-                {/***** Price of car selector *****/}
-                <TextField
-                    id="price"  
-                    select
-                    label="Price"
-                    //value={carMake}
-                    //onChange={//handleMakeChange}
-                    helperText="Price"
-                    prop sx={{width: 120}}
-                >
-                    <Slider></Slider>
-                </TextField>
+            <div className="search-bar-container">
+                <input className='search-bar' type="search" placeholder="Search (BY MANUFACTURER ONLY)" onChange={event => setSearch(event.target.value)}></input>
+                <Button onClick={() => findCar()} variant="contained">SEARCH</Button>
             </div>
         </div>
     );

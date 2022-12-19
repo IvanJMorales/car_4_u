@@ -1,5 +1,5 @@
-
-//import '@fortawesome/fontawesome-free/css/all.min.css';
+//import "mdb-react-ui-kit/dist/css/mdb.min.css";
+//import "@fortawesome/fontawesome-free/css/all.min.css";
 
 import '../styles/RightCar4U.css';
 import car from '../images/car.jpeg';
@@ -15,7 +15,6 @@ import { CardActionArea } from '@mui/material';
 function RightCar4U() {
   return (
     <div className='rc-card-container'>
-
       <Card className='rc-card'>
           <CardMedia
             component="img"

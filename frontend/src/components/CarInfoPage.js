@@ -7,19 +7,18 @@ import { Link, useParams } from 'react-router-dom';
 
 // Firebase imports
 import { doc, getDoc } from "firebase/firestore";
-
-
 import { database } from '../firebase.js';
+
 import { CollectionContext } from '../App';
 
 
-const CarInfo = () => {
+const CarInfoPage = () => {
     // Create state for car selected
     const [carState, setCarState] = useState('');
 
     // Get car id from end of URL
     const carId = useParams();
-    //console.log("CAR ID PARAM:", carId.id)
+    console.log("CAR ID PARAM:", carId.id)
 
     // Get Collection Contexts from "./App"
     const collection = useContext(CollectionContext)
@@ -41,13 +40,13 @@ const CarInfo = () => {
         <div className='container'>
             <img className='carInfo-image'
                 src={carState.Image}
-                alt="new"
             />
             <div className='carInfo-container'>
                 <div className='carInfo-name'>
                     {carState.Name}
                 </div>
                 <h1>Price: ${carState.Price}</h1>
+                <h2>Vehicle Details:</h2>
                 <div className='carInfo-info'>
                     <ul className='info'>
                         <li className='list-item'>
@@ -78,4 +77,4 @@ const CarInfo = () => {
     );
 };
 
-export default CarInfo;
+export default CarInfoPage;

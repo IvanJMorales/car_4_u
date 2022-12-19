@@ -1,6 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getFirestore } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -9,23 +10,26 @@ import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
 
-  apiKey: "AIzaSyDMEH9kvb4HdeUBhDVnjIlzkoxp9UatiXI",
+  apiKey: "AIzaSyA--UmPtC2rVHVjcvpIRicy1m4iy7QamSE",
 
-  authDomain: "car4u-2.firebaseapp.com",
+  authDomain: "car4u-3.firebaseapp.com",
 
-  databaseURL: "https://car4u-2-default-rtdb.firebaseio.com",
+  databaseURL: "https://car4u-3-default-rtdb.firebaseio.com",
 
-  projectId: "car4u-2",
+  projectId: "car4u-3",
 
-  storageBucket: "car4u-2.appspot.com",
+  storageBucket: "car4u-3.appspot.com",
 
-  messagingSenderId: "766140858814",
+  messagingSenderId: "642625303992",
 
-  appId: "1:766140858814:web:33b934072b3b7f3dc1b9ef",
+  appId: "1:642625303992:web:4b4163e3195d2adc494b4d",
 
-  measurementId: "G-FCSQZB2331"
+  measurementId: "G-LSJ4MBC0G6"
 
 };
+
+
+
 
 
 // Initialize Firebase
@@ -34,4 +38,7 @@ const analytics = getAnalytics(app);
 
 // Initialize Cloud Firestore and get a reference to the service
 export const database = getFirestore(app);
+
+// Initialize Authentication 
+export const auth = getAuth(app);
 
