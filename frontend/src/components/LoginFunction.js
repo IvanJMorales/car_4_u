@@ -110,7 +110,7 @@ export default function LoginFunction(){
 
             <Button variant="contained" onClick={handleAction}  sx={{mt:5, backgroundColor: 'white', color: '#223255'}}>Log In</Button>
 
-            <Link to="/signup" style={{color: 'white', mt:2}}>don't have account, Register here</Link>
+            <Link to="/signup" style={{color: 'white', mt:2}}>Don't have an account? Register here</Link>
 
         </FormControl>
 
