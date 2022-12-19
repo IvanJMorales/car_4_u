@@ -378,7 +378,3 @@ def edmunds_scrape():
             carid = ''.join(random.choice(string.ascii_letters + string.digits) for i in range(32)) #creates a 32 character key for the database
             dbcreate_test.dbinsert(db,carid,data)
 
-
-#databasecreate()
-
-cars_com_scrape()
