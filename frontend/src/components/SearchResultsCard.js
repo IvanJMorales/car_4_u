@@ -57,7 +57,7 @@ const SearchResultsCard = (props) => {
 
                     {/***Favorite (Heart Icon)***/}
                     {compareCars.includes(car) ? (
-                        <FavoriteIcon color='primary' onClick={() => removeFromCompare(car)}/>
+                        <FavoriteIcon style={{ color: 'orange' }} onClick={() => removeFromCompare(car)}/>
                     ) : (
                         <FavoriteBorderIcon color='primary' onClick={() => addToCompare(car)}/>
                     )}

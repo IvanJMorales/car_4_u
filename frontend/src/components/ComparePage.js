@@ -19,10 +19,10 @@ const ComparePage = () => {
     if (carsToCompare.state.compareCars != 0) {
         return (
             <div className='compare-field'>
-                {carsToCompare.state.compareCars.slice(0,20).map((car) => (
+                {carsToCompare.state.compareCars.map((car) => (
                     <Box className='compare-box' sx={{ width: '100%'}}>
                         <Stack direction='row' divider={<Divider orientation='vertical' flexItem />}spacing={2}>
-                        <img src={car.Image}></img>
+                        <img className='compare-image' src={car.Image}></img>
                         <div className='carInfo'>{car.Name}</div>
                         <div className='carInfo'>${car.Price}</div>
                         <div className='carInfo'>{car.Manufacturer}</div>

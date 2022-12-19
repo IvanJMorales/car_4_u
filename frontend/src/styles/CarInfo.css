@@ -31,7 +31,6 @@
 
 .info {
     display: grid;
-    display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto;
     grid-row-gap: 1.25rem;
@@ -43,7 +42,7 @@
 .list-item {
     display: flex;
     text-decoration: none;
-    max-width: 50%;
+    max-width: 100%;
     margin: 10px;
     border: 1px solid whitesmoke;
     box-shadow: rgb(38, 57, 77) 0px 5px 5px -5px;
