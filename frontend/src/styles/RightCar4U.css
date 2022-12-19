@@ -1,0 +1,33 @@
+.back
+  {
+    background-color: rgb(76, 168, 205) !important;
+    /* color: white !important; */
+  }
+  .btn
+  {
+    background-color: white;
+  
+    font-weight: 700;
+  }
+  .Luxurys-section
+  {
+    margin-bottom: 20px;
+    
+  }
+  
+  .Trucks-section
+  {
+    
+    margin-bottom: 20px;
+  }
+  
+  .Car-section
+  {
+    
+    margin-bottom: 20px;
+  }
+  .card-body
+  {
+    background-color: rgb(76, 168, 205);
+    color: white;
+  }

@@ -46,6 +46,7 @@ const CarInfoPage = () => {
                     {carState.Name}
                 </div>
                 <h1>Price: ${carState.Price}</h1>
+                <h2>Vehicle Details:</h2>
                 <div className='carInfo-info'>
                     <ul className='info'>
                         <li className='list-item'>

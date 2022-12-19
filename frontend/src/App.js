@@ -30,7 +30,7 @@ const collectionRef = collection(database, "Vehicles")
 
 function App() {
   return (
-    <div>
+    <div className='App'>
       <CollectionContext.Provider value={collectionRef}>
       <Header />
         <Routes>
