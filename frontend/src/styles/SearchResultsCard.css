@@ -4,7 +4,6 @@
     flex-wrap: wrap;
     background-color: whitesmoke;
     justify-content: space-around;
-    margin-top: 10px;
 }
 
 .card {
@@ -31,4 +30,8 @@
 
 .page-selector {
     display: flex;
+}
+
+.card-info {
+    height: 0px;
 }

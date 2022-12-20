@@ -27,7 +27,7 @@ const SearchPage = () => {
     useEffect(() => {
         const getData = async () => {
             const data = await getDocs(collectionRef);
-            setCars(data.docs.slice(0,20).map((doc) => ({ ...doc.data(), id: doc.id })))
+            setCars(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
             console.log(data);
         };
         getData();

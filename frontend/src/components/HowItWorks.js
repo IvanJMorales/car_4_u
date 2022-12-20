@@ -1,7 +1,8 @@
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle";
+//import "bootstrap/dist/css/bootstrap.min.css";
+//import "bootstrap/dist/js/bootstrap.bundle";
 import img1 from '../images/1.png'
 import img2 from '../images/2.png'
+//import "../styles/HowItWorks.css"
 
 
 function HowItWorks() {
@@ -14,18 +15,13 @@ function HowItWorks() {
           <div className="col-md-8">
           <header className="App-header bg-primary p-5 rounded-5 text-start " style={{backgroundColor:"orange !important"}}>
         <p>
-          For our Cars 4 U Website, we are using React.js incoroporated with
-          Django and python to read and extract .csv files from car datasets.
-          This allows us to have access to many different caars with different
-          attributes from various datasets. We are also using .json files to
-          fetch the .csv file and convert it so that the uer has all the data
-          and information needed for when they search what kind of car they
-          want. It is filtered by milage, whether the car is combustion engine
-          or electric, make of model, and so on. We actually connect the user to
-          the datbase itself through Django and extrct through React so it's
-          user friendly. The front end part of the website uses React and has a
-          navbar the allows the user to find what they need and filter anthing
-          else out. This makes it easier when getting a car.
+          For our Car 4 U Website, we are using React.js incoroporated with
+          Firebase and Python to read and extract data from car datasets.
+          This allows us to have access to many different cars with different
+          attributes from various datasets. We are using a Python based web scrapper to retrieve
+          data from multiple used car sale sites to populate our Firebase Firestore database.
+          From there we use the Firestore API to pull data and present it to the you so that you many
+          find the right Car 4 U.
         </p>
 
         <img src={img1} className="mt-4" width="100%"  />

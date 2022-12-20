@@ -42,7 +42,7 @@ const SearchResultsCard = (props) => {
     const data = useContext(CollectionContext)
     return (
         <div className='card-container'>
-            {props.cars.slice(0,20).map((car) => (
+            {props.cars.map((car) => (
                 <Card className='card' raised='true' key={car.id} value={car.CarMake}>
                     <CardActionArea>
                         <Link to={'/car-info/' + car.id}>

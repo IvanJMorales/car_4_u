@@ -2,6 +2,11 @@
     height: 50px;
     width: 100%;
     margin-top: 0px;
+    position:relative;
+    left:0;
+    bottom:0;
+    right:0;
+
 }
 
 .column-footer {

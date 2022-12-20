@@ -44,6 +44,7 @@
     margin: 2px;
     border: 1px solid whitesmoke;
     box-shadow: rgb(38, 57, 77) 0px 5px 5px -5px;
+    align-items: center;
     border: none;
     border-radius: 1.625rem;
 }
