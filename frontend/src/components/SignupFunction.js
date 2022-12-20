@@ -139,7 +139,7 @@ export default function Sign_Up() {
           sx={{ mt: 5, backgroundColor: "white", color: "#223255" }}
           onClick={handleAction}
         >
-          sign up
+          Sign up
         </Button>
 
         <Link to="/login" style={{ color: "white", mt: 2 }}>
